@@ -1,25 +1,22 @@
-# Stage 1 - the build process
-FROM node:8 as build-deps
+FROM node:8
 
 ARG REACT_APP_API_URL
 ENV REACT_APP_API_URL=$REACT_APP_API_URL
 
+# Create app directory
 WORKDIR /usr/src/app
-COPY package.json yarn.lock ./
-RUN yarn
-COPY . ./
-RUN yarn build
 
-# Stage 2 - the production environment
-FROM nginx:1.12-alpine
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
 
-ARG NGINX_HTTPS_PORT_NUMBER
-ENV NGINX_HTTPS_PORT_NUMBER=$NGINX_HTTPS_PORT_NUMBER
+RUN npm install
+# If you are building your code for production
+# RUN npm install --only=production
 
-ARG NGINX_HTTP_PORT_NUMBER
-ENV NGINX_HTTP_PORT_NUMBER=$NGINX_HTTP_PORT_NUMBER
-
-COPY --from=build-deps /usr/src/app/build /usr/share/nginx/html
-COPY --from=build-deps /usr/src/app/nginx.conf /etc/nginx/conf.d/default.conf
+# Bundle app source
+COPY . .
 
 EXPOSE 8080
+CMD [ "npm", "start" ]
