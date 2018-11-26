@@ -15,7 +15,7 @@ jobs:
      # build image
      - run: |
          docker info
-         docker build --build-arg REACT_APP_API_URL=$REACT_APP_API_URL -t leagueoflegends-react-docker .
+         docker build --build-arg REACT_APP_API_URL=$REACT_APP_API_URL NGINX_HTTPS_PORT_NUMBER=$NGINX_HTTPS_PORT_NUMBER -t leagueoflegends-react-docker .
 
      # deploy the image
      - run: |
