@@ -1,11 +1,10 @@
 import { Component } from 'react';
 import * as React from 'react';
 import './App.css';
-import { Summoner } from './model/Summoner';
 import SearchForm from './components/SearchForm';
 import PlayerInfo from './components/PlayerInfo';
-
-const url = "http://localhost:8080/api/matches/";
+import Matches from './components/Matches';
+import Title from './components/Title';
 
 export interface AppProps {
 	handleSubmit: any;
@@ -13,26 +12,34 @@ export interface AppProps {
 
 export interface IAppState {
 	matches: any;
-	playerInfo: Summoner;
+	playerInfo: any;
 }
 
 export default class App extends Component {
 
+	url:string = process.env.REACT_APP_API_URL	+ "matches/";
+
 	state: IAppState = {
-		playerInfo: new Summoner(),
+		playerInfo: {},
 		matches: []
 	}
 
-
 	getPlayerStats = async (searchValue: any) => {
 
-		const apiCall = await fetch(url + searchValue);
+		const apiCall = await fetch(this.url + searchValue);
+
+		if (apiCall.status === 500) {
+			return;
+		}
+
 		const response = await apiCall.json();
 
-		const summoner = new Summoner(response.payload);
+		const summoner = response.payload.summonerInfo;
+		const matches: [] = response.payload.matches;
 
 		this.setState({
-			playerInfo: summoner
+			playerInfo: summoner,
+			matches: matches
 		});
 
 	}
@@ -42,13 +49,15 @@ export default class App extends Component {
 	}
 
 	render() {
-		const { playerInfo } = this.state;
+		const { playerInfo, matches } = this.state;
 
 		return (
 
 			<div className="container">
+				<Title />
 				<SearchForm handleSubmit={this.handleSubmit} />
 				<PlayerInfo playerInfoData={playerInfo} />
+				<Matches matchArray={matches} />
 			</div>
 
 		);

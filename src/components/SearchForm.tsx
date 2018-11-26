@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import * as React from 'react';
+import { FormGroup, FormControl } from 'react-bootstrap';
 
 export interface ISearchFormProps {
     handleSubmit: any;
@@ -41,16 +42,18 @@ export default class SearchForm extends Component<ISearchFormProps, ISearchFormS
 
         return (
             <form>
-                <label>Player Name</label>
-                <input
-                    type="text"
-                    name="name"
-                    value={searchValue}
-                    onChange={this.handleChange} />
-                <input
-                    type="button"
-                    value="Search"
-                    onClick={this.submitForm} />
+                <FormGroup>
+                    <FormControl
+                        type="text"
+                        name="name"
+                        value={searchValue}
+                        onChange={this.handleChange} 
+                        placeholder="Enter Player Name"/>
+                    <FormControl
+                        type="button"
+                        value="Search"
+                        onClick={this.submitForm} />
+                </FormGroup>
             </form>
         );
     }
