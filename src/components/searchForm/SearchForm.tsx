@@ -44,7 +44,7 @@ export default class SearchForm extends Component<ISearchFormProps, ISearchFormS
         return (
             <React.Fragment>
                 <Form className="search-form-box">
-                    <h1 className="search-form-box--title">League of Legends stats app</h1>
+                    <h1 className="search-form-box--title">League of Legends Stats App</h1>
                     <FormGroup controlId="search-form-box--search">
                         <FormControl
                             type="text"

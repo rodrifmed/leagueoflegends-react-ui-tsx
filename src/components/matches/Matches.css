@@ -1,0 +1,107 @@
+/* Matches style */
+
+
+.box-matches {
+    align-items: center;
+    padding: 20px;
+    display: flex;
+    margin: 10px 0;
+    color:black;
+  }
+  
+  .box-matches--defeat{
+    background-color: #e2b6b3;
+    border: 1px solid #e08c84;
+  }
+  
+  .box-matches--victory{
+    background-color: #a3cfec;
+    border:1px solid #164565;
+  }
+  
+  /* BOX MATCHES STATUS */
+  .box-matches-status {
+    width: 10%;
+  }
+  .box-matches-status__result{
+    font-weight: bold;
+  }
+  .box-matches-status__result--win{
+    color: #1a78ae;
+  }
+  .box-matches-status__result--defeat{
+    color: #c6443e;
+  }
+  
+  /* BOX MATCHES INFO */
+  .box-matches-setting-info {
+    width: 20%;
+    display: flex;
+    height: max-content;
+    flex-wrap: wrap;
+  }
+  
+  .box-matches-setting-info__img {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    vertical-align: middle;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .box-matches-items-list__item {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 3px;
+    margin-top: 2px;
+    margin-right: 2px;
+    overflow: hidden;
+  }
+  
+  .box-matches-setting-info__img img,
+  .box-matches--setting-info__spell img,
+  .box-matches-items-list__item img,
+  .box-matches--setting-info__rune img {
+    background-size: cover;
+    width: 100%;
+  }
+  
+  .box-matches-setting-info__box__spell,
+  .box-matches-setting-info__box__rune {
+    width: auto;
+    margin: 0 5px;
+  }
+  
+  .box-matches--setting-info__spell,
+  .box-matches--setting-info__rune {
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  .box-matches-setting-info__name{
+    width: 100%;
+    padding-left: 20px;
+  }
+  
+  /* BOX MATCHES KDA*/
+  .box-matches-kda {
+    width: 20%;
+  }
+  
+  /* BOX MATCHES STATS*/
+  .box-matches-stats {
+    width: 20%;
+  }
+  
+  /* BOX MATCHES ITEMS*/
+  .box-matches-items-list{
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+  }
