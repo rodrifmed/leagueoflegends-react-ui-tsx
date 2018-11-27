@@ -1,10 +1,9 @@
 import { Component } from 'react';
 import * as React from 'react';
 import './App.css';
-import SearchForm from './components/SearchForm';
+import SearchForm from './components/searchForm/SearchForm';
 import PlayerInfo from './components/PlayerInfo';
 import Matches from './components/Matches';
-import Title from './components/Title';
 
 export interface AppProps {
 	handleSubmit: any;
@@ -52,13 +51,13 @@ export default class App extends Component {
 		const { playerInfo, matches } = this.state;
 
 		return (
-
-			<div className="container">
-				<Title />
-				<SearchForm handleSubmit={this.handleSubmit} />
-				<PlayerInfo playerInfoData={playerInfo} />
-				<Matches matchArray={matches} />
-			</div>
+			<React.Fragment>
+				<div className="container" id="page-search">
+					<SearchForm handleSubmit={this.handleSubmit} />
+					<PlayerInfo playerInfoData={playerInfo} />
+					<Matches matchArray={matches} />
+				</div>
+			</React.Fragment>
 
 		);
 	}

@@ -1,0 +1,27 @@
+/* SearchForm Style */
+.search-form-box{
+
+}
+
+.search-form-box--input{
+  width: 90%;
+  height: 70px;
+  font-size: 20px;
+  font-weight: 700;
+  float: left;
+}
+
+.search-form-box--button{
+  background-color: #08a6ff;
+  border: none;
+  height: 70px;
+  border-radius: 0px 10px 10px 0px;
+  margin-left: -10px;
+  padding: 20px;
+  color: #ffffff;
+  font-size: 25px;
+}
+
+.search-form-box--title{
+  color: #ffffff;
+}
