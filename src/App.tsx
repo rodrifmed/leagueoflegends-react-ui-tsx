@@ -32,7 +32,10 @@ export default class App extends Component {
 	getPlayerStats = async (searchValue: any) => {
 
 		this.setState({
-			loading: true
+			loading: true,
+			notFound: false
+			playerInfo: {},
+			matches: [],
 		});
 
 		const apiCall = await fetch(this.url + searchValue);
