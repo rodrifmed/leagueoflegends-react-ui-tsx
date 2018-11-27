@@ -33,9 +33,9 @@ export default class App extends Component {
 
 		this.setState({
 			loading: true,
-			notFound: false
+			notFound: false,
 			playerInfo: {},
-			matches: [],
+			matches: []
 		});
 
 		const apiCall = await fetch(this.url + searchValue);
