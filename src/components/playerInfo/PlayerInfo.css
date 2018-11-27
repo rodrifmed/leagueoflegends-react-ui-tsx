@@ -1,0 +1,12 @@
+/* PlayerInfo style */
+
+.player-info{
+    display: flex;
+    color: white;
+    font-size: 15px;
+  }
+  
+.player-info__name,
+.player-info__account-id {
+    padding-right: 20px;
+}
